@@ -1,17 +1,16 @@
-import { useEffect } from 'react';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { useFrameworkReady } from '@/hooks/useFrameworkReady';
+import { AppProvider } from '../context/AppContext';
 
 export default function RootLayout() {
-  useFrameworkReady();
-
   return (
-    <>
+    <AppProvider>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="splash" />
+        <Stack.Screen name="login" />
+        <Stack.Screen name="health-profile" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="order-success" />
       </Stack>
-      <StatusBar style="auto" />
-    </>
+    </AppProvider>
   );
 }
